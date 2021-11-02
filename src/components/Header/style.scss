@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+
+.header {
+  background-color: vars.$colorFour;
+  color: vars.$colorTwo;
+  width: 100%;
+  text-align: center;
+  padding: vars.$gutter;
+
+  @media (max-width: vars.$small) {
+    margin: vars.$gutter;
+  }
+}
