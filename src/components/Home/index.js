@@ -3,10 +3,11 @@ import React from 'react';
 
 import './style.scss';
 import Page from 'src/components/Page';
+import Players from 'src/containers/Players';
 
 const Home = () => (
   <Page>
-    <div>Home</div>
+    <Players />
   </Page>
 );
 

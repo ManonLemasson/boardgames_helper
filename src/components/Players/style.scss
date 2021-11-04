@@ -1,0 +1,28 @@
+@use 'src/styles/vars';
+
+.form-player {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: vars.$gutter;
+
+  &-button {
+    font-size: 1em;
+    background-color: vars.$colorOne;
+    border-radius: .3em;
+    border: 0;
+    padding: .7em;
+    height: 2.5em;
+    margin-left: vars.$gutter;
+
+    @media (max-width: vars.$small) {
+      margin-top: vars.$gutter;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: vars.$small) {
+    flex-direction: column;
+  }
+}

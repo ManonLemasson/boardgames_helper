@@ -3,10 +3,11 @@ import React from 'react';
 
 import './style.scss';
 import Page from 'src/components/Page';
+import Score from 'src/containers/Score';
 
 const Ohanami = () => (
   <Page>
-    <div>Ohanami</div>
+    <Score />
   </Page>
 );
 
