@@ -19,6 +19,65 @@ export function addScoreToPlayer(
   const newArray = array.map((player) => {
     if (player.id === playerSelected) {
       player[key] = value;
+      if (typeof player.eauS1 !== 'undefined') {
+        player.totalS1 = parseInt(player.eauS1, 10) * 3;
+      }
+      if (typeof player.eauS2 !== 'undefined') {
+        if (typeof player.totalS2 === 'undefined') {
+          player.totalS2 = parseInt(player.eauS2, 10) * 3;
+        }
+        else {
+          player.totalS2 += parseInt(player.eauS2, 10) * 3;
+        }
+      }
+      if (typeof player.vegeS2 !== 'undefined') {
+        if (typeof player.totalS2 === 'undefined') {
+          player.totalS2 = parseInt(player.vegeS2, 10) * 4;
+        }
+        else {
+          player.totalS2 += parseInt(player.vegeS2, 10) * 4;
+        }
+      }
+      if (typeof player.eauS3 !== 'undefined') {
+        if (typeof player.totalS3 === 'undefined') {
+          player.totalS3 = parseInt(player.eauS3, 10) * 3;
+        }
+        else {
+          player.totalS3 += parseInt(player.eauS3, 10) * 3;
+        }
+      }
+      if (typeof player.vegeS3 !== 'undefined') {
+        if (typeof player.totalS3 === 'undefined') {
+          player.totalS3 = parseInt(player.vegeS3, 10) * 4;
+        }
+        else {
+          player.totalS3 += parseInt(player.vegeS3, 10) * 4;
+        }
+      }
+      if (typeof player.pierreS3 !== 'undefined') {
+        if (typeof player.totalS3 === 'undefined') {
+          player.totalS3 = parseInt(player.pierreS3, 10) * 7;
+        }
+        else {
+          player.totalS3 += parseInt(player.pierreS3, 10) * 7;
+        }
+      }
+      if (typeof player.sakuraS3 !== 'undefined') {
+        if (typeof player.totalS3 === 'undefined') {
+          player.totalS3 = ((
+            parseInt(player.sakuraS3, 10) <= 15) ? sakuraValue[parseInt(player.sakuraS3, 10)] : 120
+          );
+        }
+        else {
+          player.totalS3 += ((
+            parseInt(player.sakuraS3, 10) <= 15) ? sakuraValue[parseInt(player.sakuraS3, 10)] : 120
+          );
+        }
+      }
+      player.total = 0;
+      player.total = ((typeof player.totalS1 === 'undefined') ? 0 : player.totalS1)
+      + ((typeof player.totalS2 === 'undefined') ? 0 : player.totalS2)
+      + ((typeof player.totalS3 === 'undefined') ? 0 : player.totalS3);
     }
     return player;
   });

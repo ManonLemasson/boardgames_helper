@@ -1,0 +1,65 @@
+@use 'src/styles/vars';
+@use "sass:math";
+
+.season {
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: vars.$gutter;
+
+  &-title {
+    font-size: vars.$gutter;
+    padding-top: math.div(vars.$gutter, 2);
+  }
+
+  &-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: vars.$gutter;
+
+    &-field {
+      margin: .3em .3em .3em 0;
+      position: relative;
+
+      &-input {
+        width: 100%;
+        padding: .7em;
+        font-size: 1em;
+        border: 1px solid #ddd;
+        border-radius: .3em;
+        height: 2.5em;
+      }
+
+      @media (max-width: vars.$small) {
+        width: 100%;
+      }
+    }
+
+    &-button {
+      font-size: 1em;
+      background-color: vars.$colorOne;
+      border-radius: .3em;
+      border: 0;
+      padding: .7em;
+      height: 2.5em;
+      margin-left: vars.$gutter;
+
+      @media (max-width: vars.$small) {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: vars.$small) {
+      flex-direction: column;
+      margin: math.div(vars.$gutter, 2);
+    }
+  }
+
+  @media (max-width: vars.$small) {
+    margin: 0;
+  }
+}

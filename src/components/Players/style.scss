@@ -1,4 +1,5 @@
 @use 'src/styles/vars';
+@use "sass:math";
 
 .form-player {
   
@@ -26,3 +27,41 @@
     flex-direction: column;
   }
 }
+
+.gamerList {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+    font-size: vars.$gutter *1.2;
+    padding: math.div(vars.$gutter, 2);
+  }
+
+  &-list {
+
+    &-item {
+      padding: math.div(vars.$gutter, 4);
+    }
+  }
+
+  &-button {
+    font-size: 1em;
+    background-color: vars.$colorOne;
+    border-radius: .3em;
+    border: 0;
+    padding: .7em;
+    height: 2.5em;
+    margin: math.div(vars.$gutter, 2);
+  }
+}
+
+h2.gamerList-title{
+  font-size: vars.$gutter;
+  border-top: 1.5px solid vars.$colorFour;
+  margin-top: vars.$gutter;
+  width: 80%;
+  text-align: center
+}
+

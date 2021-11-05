@@ -56,6 +56,14 @@ const reducer = (state = initialState, action = {}) => {
           parseInt(action.value, 10),
           state.playerSelected,
         ),
+        eauS1: '',
+        eauS2: '',
+        vegeS2: '',
+        eauS3: '',
+        vegeS3: '',
+        pierreS3: '',
+        sakuraS3: '',
+        playerSelected: 0,
       };
     default:
       return state;
