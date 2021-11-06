@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+@use "sass:math";
+
+#list-item-pseudo {
+  font-size: vars.$gutter;
+  font-weight: bold;
+}
+#list-item-season {
+  font-size: math.div(vars.$gutter, 1.5);
+  font-weight: normal;
+}
+#list-item{
+  font-size: math.div(vars.$gutter, 1.5);
+  font-weight: normal;
+}
+
+#list-players{
+  margin-top: math.div(vars.$gutter, 1.5);
+}

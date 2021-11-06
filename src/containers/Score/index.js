@@ -4,8 +4,9 @@ import { changeValue, addScore } from 'src/actions';
 
 const mapStateToProps = (state) => ({
   players: state.players,
-  playerSelected: state.playerSelected,
-  eauS1: state.eauS1,
+  showS1: state.showS1,
+  showS2: state.showS2,
+  showS3: state.showS3,
 });
 
 const mapDispatchToProps = (dispatch) => ({

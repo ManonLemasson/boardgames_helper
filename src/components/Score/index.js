@@ -9,41 +9,35 @@ import { List } from 'semantic-ui-react';
 
 const Score = ({
   players,
+  showS1,
+  showS2,
+  showS3,
 }) => (
   <div>
-    <Season1 />
-    <List horizontal>
+    {showS1 && (
+      <Season1 />
+    )}
+    {showS2 && (
+      <Season2 />
+    )}
+    {showS3 && (
+      <Season3 />
+    )}
+    <List horizontal id="list-players">
       {players.map((player) => (
-        <List.Item key={player.id}>
+        <List.Item key={player.id} id="list-item-pseudo">
           {player.pseudo}
-          <List.Item>Eau : {player.eauS1}</List.Item>
-          <List.Item>Total : {player.totalS1}</List.Item>
-        </List.Item>
-      ))}
-    </List>
-    <Season2 />
-    <List horizontal>
-      {players.map((player) => (
-        <List.Item key={player.id}>
-          {player.pseudo}
-          <List.Item>Eau : {player.eauS2}</List.Item>
-          <List.Item>Végétation : {player.vegeS2}</List.Item>
-          <List.Item>Total saison 2 : {player.totalS2}</List.Item>
-          <List.Item>Total : {(typeof player.totalS2 !== 'undefined') ? player.total : ''}</List.Item>
-        </List.Item>
-      ))}
-    </List>
-    <Season3 />
-    <List horizontal>
-      {players.map((player) => (
-        <List.Item key={player.id}>
-          {player.pseudo}
-          <List.Item>Eau : {player.eauS3}</List.Item>
-          <List.Item>Végétation : {player.vegeS3}</List.Item>
-          <List.Item>Pierre : {player.pierreS3}</List.Item>
-          <List.Item>Sakura : {player.sakuraS3}</List.Item>
-          <List.Item>Total saison 3 : {player.totalS3}</List.Item>
-          <List.Item>Total : {(typeof player.totalS3 !== 'undefined') ? player.total : ''}</List.Item>
+          <List.Item id="list-item-season">Saison 1</List.Item>
+          <List.Item id="list-item"> <List.Icon name="tint" verticalAlign="top" /> {player.eauS1}</List.Item>
+          <List.Item id="list-item-season">Saison 2</List.Item>
+          <List.Item id="list-item"><List.Icon name="tint" verticalAlign="top" /> {player.eauS2}</List.Item>
+          <List.Item id="list-item"><List.Icon name="leaf" verticalAlign="top" /> {player.vegeS2}</List.Item>
+          <List.Item id="list-item-season">Saison 3</List.Item>
+          <List.Item id="list-item"><List.Icon name="tint" verticalAlign="top" /> {player.eauS3}</List.Item>
+          <List.Item id="list-item"><List.Icon name="leaf" verticalAlign="top" /> {player.vegeS3}</List.Item>
+          <List.Item id="list-item"><List.Icon name="diamond" verticalAlign="top" /> {player.pierreS3}</List.Item>
+          <List.Item id="list-item"><List.Icon name="certificate" verticalAlign="top" /> {player.sakuraS3}</List.Item>
+          <List.Item id="list-item-season">Total : {(typeof player.totalS3 !== 'undefined' && typeof player.totalS2 !== 'undefined' && typeof player.totalS1 !== 'undefined') ? player.total : ''}</List.Item>
         </List.Item>
       ))}
     </List>
@@ -68,6 +62,9 @@ Score.propTypes = {
       total: PropTypes.number,
     }),
   ).isRequired,
+  showS1: PropTypes.bool.isRequired,
+  showS2: PropTypes.bool.isRequired,
+  showS3: PropTypes.bool.isRequired,
 };
 
 export default Score;

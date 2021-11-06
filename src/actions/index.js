@@ -21,3 +21,18 @@ export const addScore = (key, value) => ({
   key: key,
   value: value,
 });
+
+export const SHOW_S2 = 'SHOW_S2';
+export const showS2 = () => ({
+  type: SHOW_S2,
+});
+
+export const SHOW_S3 = 'SHOW_S3';
+export const showS3 = () => ({
+  type: SHOW_S3,
+});
+
+export const CALC_SCORE = 'CALC_SCORE';
+export const calcScore = () => ({
+  type: CALC_SCORE,
+});

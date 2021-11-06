@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FieldForm from 'src/components/FieldForm';
+import { isValuesOk } from 'src/selectors';
 
 import './style.scss';
 
@@ -11,6 +12,7 @@ const Season2 = ({
   eauS2,
   vegeS2,
   addScore,
+  showS3,
 }) => {
   const handleChangeSelect = (evt) => {
     changeField(parseInt(evt.target.value, 10), 'playerSelected');
@@ -18,6 +20,11 @@ const Season2 = ({
   const handleSubmit = (name, value) => (event) => {
     event.preventDefault();
     addScore(value, name);
+  };
+  const handleClick = () => {
+    if (isValuesOk(players, 'S2')) {
+      showS3();
+    }
   };
   return (
     <section className="season">
@@ -58,6 +65,7 @@ const Season2 = ({
         />
         <button type="submit" className="season-form-button">Ok</button>
       </form>
+      <button type="button" className="season-form-button" onClick={handleClick}>Saison suivante</button>
     </section>
   );
 };
@@ -74,6 +82,7 @@ Season2.propTypes = {
   eauS2: PropTypes.string.isRequired,
   vegeS2: PropTypes.string.isRequired,
   addScore: PropTypes.func.isRequired,
+  showS3: PropTypes.func.isRequired,
 };
 
 export default Season2;

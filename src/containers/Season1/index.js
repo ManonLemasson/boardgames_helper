@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Season1 from 'src/components/Score/Season/Season1';
-import { changeValue, addScore } from 'src/actions';
+import { changeValue, addScore, showS2 } from 'src/actions';
 
 const mapStateToProps = (state) => ({
   players: state.players,
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
   addScore: (value, name) => {
     const action = addScore(name, value);
     dispatch(action);
+  },
+  showS2: () => {
+    dispatch(showS2());
   },
 });
 
